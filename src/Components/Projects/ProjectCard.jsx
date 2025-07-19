@@ -1,20 +1,27 @@
 import React from "react";
 import bannerImg from "../../assets/photo-C8q0KQHG.webp";
-const ProjectCard = ({ title, main }) => {
+const ProjectCard = ({ title, main, demo }) => {
   return (
-    <div className="p-3 md:p-6 flex flex-col w-80 bg-[#0c0e19] shadow-xl shadow-slate-900 rounded-2xl">
-      <img className="p-4" src={bannerImg} alt="" />
-      <h3 className="px-4 text-xl md:text-2xl font-bold leading-normal">
-        {title}
-      </h3>
-      <p className="px-4 text-sm md:text-md leading-tight py-2">{main}</p>
-      <div className="mt-2 p-2 md:p-4 flex gap-2 md:gap-4">
-        <button className="md:mt-10 text-white py-2 px-3 text-sm md:text-lg md:py-2 md:px-4 hover:opacity-85 duration-300 hover:scale-105 font-semibold rounded-3xl bg-[#465697]">
-          Demo
-        </button>
-        <button className="md:mt-10 text-white py-2 px-3 text-sm md:text-lg md:py-2 md:px-4 hover:opacity-85 duration-300 hover:scale-105 font-semibold rounded-3xl bg-[#465697]">
-          Source Code
-        </button>
+    <div className="p-0 md:p-1 flex flex-col w-80 bg-gradient-to-br from-[#181c2a] via-[#232946] to-[#181c2a] rounded-3xl shadow-2xl hover:scale-105 hover:shadow-blue-700/40 transition-transform duration-300 border border-blue-900/30">
+      <div className="rounded-3xl overflow-hidden">
+        <img className="w-full h-40 object-cover bg-[#232946]" src={bannerImg} alt="" />
+      </div>
+      <div className="flex flex-col flex-1 justify-between p-6">
+        <h3 className="text-2xl font-bold leading-normal mb-2 text-white drop-shadow-lg">{title}</h3>
+        <p className="text-md text-slate-200 leading-tight mb-6 min-h-[60px]">{main}</p>
+        <div className="flex justify-center">
+          {demo ? (
+            <a href={demo} target="_blank" rel="noopener noreferrer">
+              <button className="px-6 py-2 bg-gradient-to-r from-blue-900 via-blue-700 to-purple-900 text-white font-semibold rounded-full shadow-lg hover:from-purple-800 hover:to-blue-900 hover:shadow-blue-500/40 transition-all duration-300 border border-blue-800/40">
+                Demo
+              </button>
+            </a>
+          ) : (
+            <button className="px-6 py-2 bg-gradient-to-r from-blue-900 via-blue-700 to-purple-900 text-white font-semibold rounded-full shadow-lg border border-blue-800/40">
+              Demo
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
